@@ -10,12 +10,11 @@ export default function App() {
   return (
     <Router>
       <Navigation />
-      Estoy
       <Routes>
-        <Route path="/" exact component={NotesList} />
-        <Route path="/edit/:id" component={CreateNote} />
-        <Route path="/create" component={CreateNote} />
-        <Route path="/user" component={CreateUser} />
+        <Route path="/" exact element={ <NotesList /> } />
+        <Route path="/edit/:id" element={ <CreateNote/> } />
+        <Route path="/create" element={ <CreateNote/> } />
+        <Route path="/user" element={ <CreateUser/> } />
       </Routes>
     </Router>  
   );
