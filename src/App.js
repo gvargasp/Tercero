@@ -1,3 +1,6 @@
+const express = require('express');
+const app = express();
+/*
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -20,3 +23,5 @@ export default function App() {
     </Router>  
   );
 }
+*/
+module.exports = app;
