@@ -1,5 +1,7 @@
 const usersCtrl = {};
 
+const User = require('../models/User');
+
 usersCtrl.getUsers = (req, res) => res.json({ message: ['GET - Users routes'] })
 usersCtrl.createUser = (req, res) => res.send('POST - Users routes')
 

@@ -1,6 +1,12 @@
 const notesCtrl = {};
 
-notesCtrl.getNotes = (req, res) => res.json({ message: ['GET - Notes routes'] })
+const Note = require('../models/Note');
+
+notesCtrl.getNotes = async (req, res) => {
+  const notes = await Note.find()
+  res.json(notes)
+ }
+
 notesCtrl.createNote = (req, res) => res.send('POST - Note routes')
 
 notesCtrl.getNote = (req, res) => res.json({ message: 'GET - Note routes' })

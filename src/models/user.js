@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongose')
+const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema({
   username: {
@@ -11,4 +11,4 @@ const userSchema = new Schema({
   timestamps: true
 });
 
-model.exports = model('User', noteSchema);
+module.exports = model('User', userSchema);
