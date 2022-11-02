@@ -7,10 +7,36 @@ notesCtrl.getNotes = async (req, res) => {
   res.json(notes)
  }
 
-notesCtrl.createNote = (req, res) => res.send('POST - Note routes')
+notesCtrl.createNote = async (req, res) => {
+  const { title, content, author } = req.body;
+  const newNote = new Note({
+    title: title,
+    content: content,
+    author: author
+  });
+  console.log(newNote);
+  await newNote.save();
+  res.json({ message: 'SAVE - Note Saved' })
+};
 
-notesCtrl.getNote = (req, res) => res.json({ message: 'GET - Note routes' })
-notesCtrl.updateNote = (req, res) => res.json({ message: 'PUT - Note routes' })
-notesCtrl.deleteNote = (req, res) => res.json({ message: 'DELETE - Note routes' })
+notesCtrl.getNote = async (req, res) => {
+  const note = await Note.findById(req.params.id);
+  res.json({ message: 'GET - Note routes' })
+};
+
+notesCtrl.updateNote = async (req, res) => {
+  const { title, content, author } = req.body
+  await Note.findOneAndUpdate({ _id: req.params.id }, {
+    title: title, 
+    content: content,
+    author: author
+  });
+  res.json({ message: 'PUT - Note routes' })
+};
+
+notesCtrl.deleteNote = async (req, res) => {
+  await Note.findByIdAndDelete(req.params.id);
+  res.json({ message: 'DELETE - Note routes' })
+};
 
 module.exports = notesCtrl;

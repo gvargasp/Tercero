@@ -8,7 +8,7 @@ app.set('port', process.env.PORT || 4000)
 // Midleware
 app.set(cors());
 app.set(express.json());
-
+app.use(express.json());
 // routes
 app.use('/api/users', require('./routes/users'))
 app.use('/api/notes', require('./routes/notes'))
