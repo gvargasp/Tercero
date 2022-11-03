@@ -4,14 +4,12 @@ const User = require('../models/User');
 
 usersCtrl.getUsers = async (req, res) => {
   const users = await User.find();
-  console.log(users)
   res.json(users)
 };
 
 usersCtrl.createUser = async (req, res) => {
   const { username } = req.body;
   const newUser = new User({ username });
-  console.log(newUser);
   await newUser.save();
   res.send('POST - Users routes')
 };

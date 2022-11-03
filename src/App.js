@@ -1,7 +1,16 @@
+// Front End
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from './componentes/Navigation';
+import CreateNote from './componentes/CreateNote';
+import CreateUser from './componentes/CreateUser';
+import NotesList from './componentes/NotesList';
+//Back End 
 const express = require('express');
 const cors = require('cors');
 const app = express();
-
 // Setting
 app.set('port', process.env.PORT || 4000)
 
@@ -12,16 +21,7 @@ app.use(express.json());
 // routes
 app.use('/api/users', require('./routes/users'))
 app.use('/api/notes', require('./routes/notes'))
-/*
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navigation from './componentes/Navigation';
-import CreateNote from './componentes/CreateNote';
-import CreateUser from './componentes/CreateUser';
-import NotesList from './componentes/NotesList';
-
+// frontend
 export default function App() {
   return (
     <Router>
@@ -35,5 +35,5 @@ export default function App() {
     </Router>  
   );
 }
-*/
+
 module.exports = app;
